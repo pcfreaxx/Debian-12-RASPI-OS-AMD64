@@ -8,25 +8,26 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y live-build
+      - name: Install live-build
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y live-build
 
-    - name: Configure live-build
-      run: |
-        lb config --mode debian --distribution bookworm --architecture amd64
+      - name: Configure build
+        run: |
+          sudo lb config --mode debian --distribution bookworm --architecture amd64
 
-    - name: Build ISO
-      run: |
-        sudo lb build
+      - name: Build ISO
+        run: |
+          sudo lb build
 
-    - name: Upload ISO Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: debian-live.iso
-        path: live-image-amd64.hybrid.iso
+      - name: Upload ISO
+        uses: actions/upload-artifact@v3
+        with:
+          name: debian-live.iso
+          path: live-image-amd64.hybrid.iso
