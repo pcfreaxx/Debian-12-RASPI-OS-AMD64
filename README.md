@@ -1,2 +1,3 @@
-# Debian 12 + PIXEL + Real-ESRGAN
-Automatisches ISO-Build mit GitHub Actions.
+# Debian-12-RASPI-OS-AMD64
+
+Dieses Repository baut ein Debian-12-basiertes Live-System mit 64-bit Architektur.
